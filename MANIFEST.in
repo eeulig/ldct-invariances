@@ -1,0 +1,2 @@
+include ldctinv/data/info.yml
+include ldctinv/pretrained/checkpoints.json

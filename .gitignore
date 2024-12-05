@@ -1,0 +1,10 @@
+env/
+*.egg-info
+build/
+*.pyc
+results/
+wandb/
+.idea/
+site/
+*.DS_Store
+__pycache__/

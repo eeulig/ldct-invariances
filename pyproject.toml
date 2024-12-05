@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ldct-invariances"
+version = "0.0.1"
+authors = [
+    {name = "Elias Eulig", email = "elias.eulig@dkfz.de"},
+]
+description = "Reconstruct invariances of LDCT denoising networks"
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+  "PyYAML",
+  "wandb",
+  "matplotlib",
+  "tqdm>4.66",
+  "scikit-image",
+  "pydicom",
+  "torch",
+  "torchvision",
+  "ldct-benchmark>=0.0.7",
+]
+[project.optional-dependencies]
+dev = [
+    "poethepoet",
+    "black",
+    "isort",
+    "flake8",
+]
+
+[tool.setuptools.packages.find]
+include = ["ldctinv*"]
+exclude = ["assets*", "configs*", "env*"]
+namespaces = false
+
+[tool.black]
+exclude = '''
+/(
+    env
+    | \.git
+    | build
+    | wandb
+)/
+'''
+
+target-version = ["py310"]
+color = false
+line-length = 120
+
+[tool.isort]
+skip = ["env", "build", ".git", "wandb"]
+profile = "black"
+skip_gitignore = true
+color_output = false
+
+[tool.poe.tasks]
+_black = 'black .'
+_isort = 'isort .'
+_black_check = 'black --check .'
+_isort_check = 'isort --check .'
+_lint = "flake8 . --select=E9,F63,F7,F82 --show-source --statistics --exclude .git,env,build,wandb"
+
+[tool.poe.tasks.format]
+sequence = ['_black', '_isort']
+ignore_fail = 'return_non_zero'
+
+[tool.poe.tasks.format_check]
+sequence = ['_black_check', '_isort_check', '_lint']
+ignore_fail = 'return_non_zero'

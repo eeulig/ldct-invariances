@@ -1,0 +1,64 @@
+{
+    "cnn10": {
+        "vae": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/cnn10-vae.pt",
+            "checksum": "3c53d7d06fa0f09afe421e2fdf188fb9e26ea3988ad7f12c7108ea96c256afa8",
+            "args": {"z_dim": 256, "deterministic": false, "encoder_type": "resnet50", "encoder_pretrained": false, "input_size": 128, "encoder_norm": "bn", "decoder_norm": "an", "decoder_chn": 96, "patchsize": 128},
+            "kwargs": {"in_ch": 2, "cond_ch": 1, "out_ch": 1},
+            "model_name": "BigAE"
+        },
+        "cinn": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/cnn10-cinn.pt",
+            "checksum": "360a88d0b1d088b6bd00c3018c1c0e8ad39fcfb9c8ee95963a44e605e2f64b22",
+            "args": {"in_channels": 256, "mid_channels": 1024, "hidden_depth": 2, "n_flows": 12, "n_down": 4, "conditioning_spatial_size": 128, "conditioning_in_ch": 1, "conditioning_depth": 4, "conditioning_dims": 0},
+            "kwargs": {},
+            "model_name": "ConditionalTransformer"
+        },
+        "data_attr": {"patchsize": 128, "data_norm": "meanstd", "data_subset": 1.0}
+    },
+    "redcnn": {
+        "vae": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/redcnn-vae.pt",
+            "checksum": "479e0591eccabbb276be13ef786162c366e83761a9ba41870413f6a69a7e4093",
+            "kwargs": {"in_ch": 2, "cond_ch": 1, "z_dim": 256, "deterministic": false, "encoder_type": "resnet50", "encoder_pretrained": false, "input_size": 128, "encoder_norm": "bn", "decoder_norm": "an", "decoder_chn": 96, "out_ch": 1},
+            "model_name": "BigAE"
+        },
+        "cinn": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/redcnn-cinn.pt",
+            "checksum": "4c7f31ceeb634d1db3f1f56c4de8c30f5c0f5ce9d7e9c734ad4f7856d715b972",
+            "kwargs": {"in_channels": 256, "mid_channels": 1024, "hidden_depth": 2, "n_flows": 12, "n_down": 4, "conditioning_spatial_size": 128, "conditioning_in_channels": 1, "conditioning_depth": 4, "conditioning_dims": 0},
+            "model_name": "ConditionalTransformer"
+        },
+        "data_attr": {"patchsize": 128, "data_norm": "meanstd", "data_subset": 1.0}
+    },
+    "wganvgg": {
+        "vae": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/wganvgg-vae.pt",
+            "checksum": "606e5b6e5022eb9c28e3e6a5e8a31274f0804d429bbe784fb1626c2d72cccd1d",
+            "kwargs": {"in_ch": 2, "cond_ch": 1, "z_dim": 256, "deterministic": false, "encoder_type": "resnet50", "encoder_pretrained": false, "input_size": 128, "encoder_norm": "bn", "decoder_norm": "an", "decoder_chn": 96, "out_ch": 1},
+            "model_name": "BigAE"
+        },
+        "cinn": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/wganvgg-cinn.pt",
+            "checksum": "7b08656cca960177ee2a84e046b074ff8562616b5344ddbcfcf7fb468d8d31c6",
+            "kwargs": {"in_channels": 256, "mid_channels": 1024, "hidden_depth": 2, "n_flows": 12, "n_down": 4, "conditioning_spatial_size": 128, "conditioning_in_channels": 1, "conditioning_depth": 4, "conditioning_dims": 0},
+            "model_name": "ConditionalTransformer"
+        },
+        "data_attr": {"patchsize": 128, "data_norm": "meanstd", "data_subset": 1.0}
+    },
+    "dugan": {
+        "vae": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/dugan-vae.pt",
+            "checksum": "ac168121eb23dd25e222ba48e69a2125a7c338e0be43e4bdfb7435206aa7ecd5",
+            "kwargs": {"in_ch": 2, "cond_ch": 1, "z_dim": 256, "deterministic": false, "encoder_type": "resnet50", "encoder_pretrained": false, "input_size": 128, "encoder_norm": "bn", "decoder_norm": "an", "decoder_chn": 96, "out_ch": 1},
+            "model_name": "BigAE"
+        },
+        "cinn": {
+            "url": "https://downloads.eeulig.com/ldct-invariances/dugan-cinn.pt",
+            "checksum": "7bc5c99cb99f4c13bb5c2971f0b8691a03a082b6d90c5866b942f52d42e504f2",
+            "kwargs": {"in_channels": 256, "mid_channels": 1024, "hidden_depth": 2, "n_flows": 12, "n_down": 4, "conditioning_spatial_size": 128, "conditioning_in_channels": 1, "conditioning_depth": 4, "conditioning_dims": 0},
+            "model_name": "ConditionalTransformer"
+        },
+        "data_attr": {"patchsize": 128, "data_norm": "meanstd", "data_subset": 1.0}
+    }
+}
